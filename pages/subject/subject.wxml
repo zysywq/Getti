@@ -1,0 +1,21 @@
+<view class="subject-container" style="background-image: url(../../images/subject_bg.jpg);">
+    <progress class="progress" percent="50" color="#9389BD" backgroundColor="#EDECF2" />
+    <text class="count-abs">{{index + '/' + total}}</text>
+    <view class="title-warp" bindtap="changeTitle">
+        <text class="title-text" wx:if="{{isWordShow}}">{{word}}</text>
+        <text class="title-text" wx:else>{{explain}}</text>
+    </view>
+    <view class="read-warp">
+        <text class="read-text">{{read}}</text>
+        <text class="read-text">点击音标可发声</text>
+    </view>
+    <view class="panel-warp">
+        <view class="panel-body">
+        <text class="read-text"></text>
+        </view>
+        <view class="panel-hr" style="background-image: url(../../images/hr.png);"></view>
+        <view class="panel-footer">
+
+        </view>
+    </view>
+</view>
