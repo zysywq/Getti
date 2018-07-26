@@ -13,3 +13,6 @@ text, view{
     box-sizing: border-box;
     word-break: break-all;
 }
+image{
+    box-sizing: border-box;
+}

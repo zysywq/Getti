@@ -11,67 +11,80 @@ Page({
         word: 'commission',
         explain: 'They commissioned a sculpture.',
         read: '|kəˈmɪʃn|',
-        options: ['order', 'release', 'prevent', 'affect']
+        options: ['order', 'release', 'prevent', 'affect'],
+        backup: "陈晓等两位成员答对了这道题",
+        animationData: {},
+        titleHeight: 'auto'
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
 
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
 
     changeTitle: function () {
         var flg = !this.data.isWordShow;
-        this.setData({ isWordShow: flg });
+        wx.createSelectorQuery().select('.title-text').fields({
+            computedStyle: ['height']
+        }, function (res) {
+            this.setData({ titleHeight: res.height, isWordShow: flg });
+            wx.createSelectorQuery().select('.title-text').fields({
+                computedStyle: ['height']
+            }, function (res) {
+                this.setData({ titleHeight: res.height });
+            }.bind(this)).exec();
+        }.bind(this)).exec();
+        
     }
 })
